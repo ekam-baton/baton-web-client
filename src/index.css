@@ -1,0 +1,125 @@
+:root {
+  /* Core Baton Brand Accent */
+  --accent-primary: #3d8eff; /* BatonElectric */
+  --accent-secondary: #1a73e8; /* Darker electric for hover */
+  
+  --success: #32d74b;
+  --error: #ff453a;
+  
+  --transition-fast: 0.2s cubic-bezier(0.2, 0, 0, 1);
+  --transition-smooth: 0.4s cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* Default / Web / Generic Dark Mode */
+:root {
+  --bg-primary: #070b14; /* BatonBackground */
+  --bg-secondary: #0f1623; /* BatonSurface */
+  --bg-tertiary: rgba(15, 22, 35, 0.75); /* Frosted Glass Base */
+  
+  --text-primary: #e8eaf6;
+  --text-secondary: #b0bec5;
+  --text-muted: #8696a0;
+  
+  --border-light: #2a3448;
+  --border-focus: var(--accent-primary);
+  
+  --font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url('/doodle-bg.jpg');
+  background-repeat: repeat;
+  background-size: 400px; /* scale the doodles */
+  opacity: 0.45; /* Increased visibility */
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Apple Frosted Glass / Vibrancy */
+.glass {
+  background: var(--bg-tertiary);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-light);
+  border-radius: 18px; /* Classic Apple rounding */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--text-primary);
+}
+
+h1 { font-size: 2.125rem; line-height: 1.2; }
+h2 { font-size: 1.75rem; line-height: 1.275; }
+p { color: var(--text-secondary); font-size: 1.0625rem; }
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent; 
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2); 
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4); 
+}
+
+/* Toast Notifications */
+.toast-container {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.toast {
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  color: white;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  animation: slideInRight var(--transition-smooth);
+}
+
+.toast-success { background: var(--success); }
+.toast-error { background: var(--error); }
+.toast-info { background: var(--accent-primary); }
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(100%); }
+  to { opacity: 1; transform: translateX(0); }
+}
