@@ -218,16 +218,16 @@ export default function VaultDashboard({ masterKey, onLogout, timeoutMinutes, se
           <form onSubmit={handleSaveNew} style={{marginTop: '1.5rem'}}>
             <div className="input-group">
               <label>Title</label>
-              <input className="input-field" value={newTitle} onChange={e => setNewTitle(e.target.value)} placeholder="e.g. Bank of America" required />
+              <input className="input-field" value={newTitle} onChange={e => setNewTitle(e.target.value)} required />
             </div>
             <div className="input-group">
               <label>Username</label>
-              <input className="input-field" value={newUsername} onChange={e => setNewUsername(e.target.value)} placeholder="agent_007" required />
+              <input className="input-field" value={newUsername} onChange={e => setNewUsername(e.target.value)} required />
             </div>
             <div className="input-group">
               <label>Password</label>
               <div style={{display: 'flex', gap: '0.5rem'}}>
-                <input type="text" className="input-field" value={newPassword} onChange={e => setNewPassword(e.target.value)} placeholder="••••••••" required />
+                <input type="text" className="input-field" value={newPassword} onChange={e => setNewPassword(e.target.value)} required />
                 <button type="button" className="btn btn-outline" onClick={() => setNewPassword(generatePassword())}>Generate</button>
               </div>
             </div>
@@ -243,7 +243,6 @@ export default function VaultDashboard({ masterKey, onLogout, timeoutMinutes, se
             <input 
               type="text" 
               className="input-field" 
-              placeholder="Search passwords..." 
               value={searchQuery}
               onChange={e => setSearchQuery(e.target.value)}
               style={{width: '60%', marginBottom: 0}}

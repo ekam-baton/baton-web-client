@@ -108,7 +108,6 @@ export default function AuthFlow({ onAuthenticated }) {
             <input 
               type="email" 
               className="input-field" 
-              placeholder="agent@baton.io" 
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required 
@@ -119,7 +118,6 @@ export default function AuthFlow({ onAuthenticated }) {
             <input 
               type="password" 
               className="input-field" 
-              placeholder="••••••••••••"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required 
@@ -142,7 +140,6 @@ export default function AuthFlow({ onAuthenticated }) {
             <input 
               type="email" 
               className="input-field" 
-              placeholder="agent@baton.io" 
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required 
@@ -153,7 +150,6 @@ export default function AuthFlow({ onAuthenticated }) {
             <input 
               type="password" 
               className="input-field" 
-              placeholder="Extremely strong password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required 
@@ -182,7 +178,6 @@ export default function AuthFlow({ onAuthenticated }) {
             <input 
               type="text" 
               className="input-field" 
-              placeholder="000000"
               style={{letterSpacing: '0.5em', textAlign: 'center', fontSize: '1.25rem'}}
               value={code}
               onChange={(e) => setCode(e.target.value)}
