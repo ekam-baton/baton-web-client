@@ -22,10 +22,21 @@ export const api = {
     }
 
     const response = await fetch(`${API_URL}${endpoint}`, config);
-    const data = await response.json();
+    let data = null;
+    const contentType = response.headers.get('content-type') || '';
+    if (contentType.includes('application/json')) {
+      try {
+        data = await response.json();
+      } catch {
+        data = null;
+      }
+    } else {
+      const text = await response.text();
+      data = text ? { error: text } : null;
+    }
     
     if (!response.ok) {
-      throw new Error(data.error || 'API Request Failed');
+      throw new Error((data && data.error) || `Request failed with status ${response.status}`);
     }
     
     return data;
