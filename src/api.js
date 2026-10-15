@@ -21,18 +21,14 @@ export const api = {
       config.body = JSON.stringify(body);
     }
 
-    try {
-      const response = await fetch(`${API_URL}${endpoint}`, config);
-      const data = await response.json();
-      
-      if (!response.ok) {
-        throw new Error(data.error || 'API Request Failed');
-      }
-      
-      return data;
-    } catch (err) {
-      throw err;
+    const response = await fetch(`${API_URL}${endpoint}`, config);
+    const data = await response.json();
+    
+    if (!response.ok) {
+      throw new Error(data.error || 'API Request Failed');
     }
+    
+    return data;
   },
 
   async login(email, password) {

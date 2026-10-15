@@ -22,7 +22,7 @@ export default function AuthFlow({ onAuthenticated }) {
           localStorage.setItem('baton_user_salt', salt);
         }
       }
-    } catch(e) {}
+    } catch {}
     
     if (!salt) {
       throw new Error("Unable to retrieve encryption salt for this account.");

@@ -89,7 +89,7 @@ export default function VaultDashboard({ masterKey, onLogout, timeoutMinutes, se
             remoteLastModified = parsed.last_modified;
           }
         }
-      } catch(e) {}
+      } catch {}
       
       const localLastModified = parseInt(localStorage.getItem('baton_last_modified')) || 0;
       if (remoteLastModified > localLastModified) {

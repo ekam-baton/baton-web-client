@@ -39,7 +39,7 @@ export async function deriveMasterKey(password, saltBase64) {
         ["deriveKey"]
     );
 
-    const salt = saltBase64 ? base64ToBuffer(saltBase64) : window.crypto.getRandomValues(new Uint8Array(16)).buffer;
+    const salt = saltBase64 ? base64ToBuffer(saltBase64) : window.crypto.getRandomValues(new Uint8Array(SALT_SIZE)).buffer;
 
     return await window.crypto.subtle.deriveKey(
         {
@@ -56,7 +56,7 @@ export async function deriveMasterKey(password, saltBase64) {
 }
 
 export function generateSalt() {
-    const salt = window.crypto.getRandomValues(new Uint8Array(16));
+    const salt = window.crypto.getRandomValues(new Uint8Array(SALT_SIZE));
     return bufferToBase64(salt.buffer);
 }
 
